@@ -1,0 +1,15 @@
+{
+  "name": "login-hjs",
+  "version": "1.0.0",
+  "description": "Brocamp task week 7",
+  "main": "app.js",
+  "author": "Feyz-Ibrahim",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  }
+}
