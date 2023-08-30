@@ -7,7 +7,8 @@ const loginUser = (req, res) => {
   const { username, password } = req.body;
 
   if (username !== user.username && password !== user.password) {
-    res.render("index", { message: "Invalid Credentials" });
+    res.render("index", { title: "Login", message: "Invalid Credentials" });
+    return;
   }
 
   req.session.username = username;

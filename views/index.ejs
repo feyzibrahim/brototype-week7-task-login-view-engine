@@ -1,30 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login - Week 7</title>
-  </head>
+  <%- include("./partials/head.ejs") %>
   <body>
-    <h1>Login Page</h1>
+    <%- include("./partials/navbar.ejs") %>
 
-    <form action="/auth/login" method="POST">
-      <label for="username">UserName</label>
-      <input
-        type="text"
-        placeholder="Enter your username"
-        id="username"
-        name="username"
-      /><br />
-      <label for="password">Password</label>
-      <input
-        type="password"
-        placeholder="Enter your password"
-        id="password"
-        name="password"
-      /><br />
-      <%- message %> <br />
-      <input type="submit" />
-    </form>
+    <div class="d-flex align-items-center justify-content-center vh-100">
+      <div class="p-5 rounded shadow-lg">
+        <h1 class="text-center mb-4">Login Page</h1>
+
+        <form action="/auth/login" method="POST">
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              name="username"
+              placeholder="Enter your username"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+            />
+          </div>
+          <p class="text-danger"><%- message %></p>
+          <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

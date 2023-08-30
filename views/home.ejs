@@ -1,12 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home Page</title>
-  </head>
+  <%- include("./partials/head.ejs") %>
+
   <body>
-    <h1>Home page</h1>
-    <a href="/auth/logout">Logout</a>
+    <%- include("./partials/navbar.ejs") %>
+
+    <div class="container mt-5">
+      <div class="jumbotron">
+        <h1 class="display-4">Login App</h1>
+        <p class="lead">Just for testing login and sessions</p>
+        <hr class="my-4" />
+        <p>Some random cards just as dummy data</p>
+      </div>
+
+      <div class="row">
+        <% if(data) { %> <% for(d of data) { %>
+
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><%= d.title %></h5>
+              <p class="card-text"><%= d.body %></p>
+              <a href="" class="btn btn-primary">View More</a>
+            </div>
+          </div>
+        </div>
+        <% } %> <% } else { %>
+
+        <p>No data is received</p>
+
+        <% } %>
+      </div>
+    </div>
+
+    <div class="container text-center mt-5">
+      <a href="/auth/logout" class="btn btn-danger">Logout</a>
+    </div>
   </body>
 </html>

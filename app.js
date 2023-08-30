@@ -1,6 +1,7 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
+const data = require("./data");
 
 const authRoutes = require("./routes/auth");
 
@@ -21,16 +22,16 @@ app.use(
 
 app.use(express.urlencoded({ extended: true }));
 
+app.get("/login", (req, res) => {
+  res.render("index", { title: "Login", message: "" });
+});
+
 app.get("/", (req, res) => {
   if (!req.session.isAuth) {
     res.redirect("/login");
   } else {
-    res.render("home");
+    res.render("home", { title: "Home", data });
   }
-});
-
-app.get("/login", (req, res) => {
-  res.render("index", { message: "" });
 });
 
 app.use("/auth", authRoutes);
